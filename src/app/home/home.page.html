@@ -1,22 +1,20 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic 4 Form
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content class="auth-form">
   <ion-grid>
     <ion-row>
       <ion-col align-self-center>
-        <ion-button [routerLink]="['/registration']" expand="block" color="primary">Register</ion-button>
 
-        <span class="divider line one-line">or</span>
+        <ion-img id = "logo" src = "../../assets/icon/app_logo.png"> </ion-img>
 
-        <span class="already">Already a user?</span>
+        <h1 id = "App_name"> BEACH APP </h1>
 
-        <ion-button [routerLink]="['/login']" expand="block" color="danger">Sign In</ion-button>
+        <ion-button id = "registration_button" [routerLink]="['/registration']" expand="block" color = "primary" >Registrati</ion-button>
+
+        <span class="divider line one-line">oppure</span>
+
+        <span class="already">Hai già un account?</span>
+
+        <ion-button [routerLink]="['/login']" expand="block" color = "primary" >Accedi</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
