@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ionic-form-ui-43a85": {
+      "hosting": {
+        "app": [
+          "ionic-form-ui-43a85"
+        ]
+      }
+    }
+  }
+}
