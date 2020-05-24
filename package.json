@@ -24,6 +24,8 @@
     "@angular/router": "^10.0.0-rc.0",
     "@auth0/angular-jwt": "^4.1.2",
     "@capacitor/core": "2.1.0",
+    "@google-cloud/datastore": "^5.1.0",
+    "@google-cloud/storage": "^5.0.1",
     "@ionic-native/core": "^5.0.7",
     "@ionic-native/geolocation": "^5.26.0",
     "@ionic-native/splash-screen": "^5.0.0",
