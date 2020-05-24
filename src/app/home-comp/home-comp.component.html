@@ -1,0 +1,22 @@
+
+<ion-content class="auth-form">
+  <ion-grid>
+    <ion-row>
+      <ion-col align-self-center>
+
+        <h1 id = "App_name"> BEACH APP </h1>
+
+        <ion-img id = "logo" src = "../../assets/icon/app_logo.png"> </ion-img>
+
+        <ion-button shape = "round" id  = "registration_button" [routerLink]="['/reg']" expand="block" color = "primary" >Registrati</ion-button>
+
+        <span class="divider line one-line">oppure</span>
+
+        <span class="already">Hai già un account?</span>
+
+        <ion-button id = "log" shape = "round" [routerLink]="['/sign']" expand="block" color = "primary" >Accedi</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

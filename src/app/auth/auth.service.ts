@@ -1,20 +1,39 @@
 import { Injectable } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import {Observable,of, from } from 'rxjs';
+
 @Injectable()
-export class AuthService {
-  constructor(public jwtHelper: JwtHelperService) {}
-  // ...
-  public isAuthenticated(): boolean {
-    // Get token from localstorage
-    let token = localStorage.getItem('token');
-    // Check if token is null or empty
-    if (token){
-      // Check whether the token is expired and return
-      // true or false
-      return !this.jwtHelper.isTokenExpired(token);
+export class AuthService { 
+ 
+    private isloggedIn: boolean;
+    private userName:string;
+ 
+    constructor() {
+        this.isloggedIn=false;
     }
-    else{
-      return false
+ 
+    login(username: string, password:string) {
+ 
+        //Assuming users have provided the correct credentials.
+        //In real app you will query the database to verify.
+
+        this.isloggedIn=true;
+        this.userName=username;
+        return of(this.isloggedIn);
     }
-  }
-}
+ 
+    isUserLoggedIn(): boolean {
+        return this.isloggedIn;
+    }
+ 
+    isAdminUser():boolean {
+        if (this.userName=='Admin') {
+            return true; 
+        }
+        return false;
+    }
+    
+    logoutUser(): void{
+        this.isloggedIn = false;
+    }
+ 
+} 
