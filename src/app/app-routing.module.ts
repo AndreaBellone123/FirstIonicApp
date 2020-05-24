@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes,CanActivate } from '@angular/router';
+// import { ProfileComponent } from './profile/profile.component';
+import { 
+  AuthGuardService as AuthGuard 
+} from './auth/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -12,6 +16,7 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
