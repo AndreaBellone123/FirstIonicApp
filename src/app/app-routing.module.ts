@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import {AuthService} from './auth/auth.service';
-import {AuthGuardService} from './auth/auth-guard';
 
 export const routes: Routes = [
 
@@ -9,7 +7,7 @@ export const routes: Routes = [
   {
     path: 'signedin',
     loadChildren: () => import('./signedin/signedin.module').then( m => m.SignedinPageModule),
-    canActivate : [AuthGuardService],
+   
   },
 
     {

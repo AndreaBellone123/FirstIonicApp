@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
+  <ion-toolbar align-title = "center">
+    <ion-buttons size = "small" slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title id = "barra">Registrati</ion-title>
+    <ion-title class = "appb"> Registrati </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,33 +11,35 @@
 
   <ion-img id = "logo" src = "../../assets/icon/app_logo.png"> </ion-img>
 
-
-  <ion-title id = "inf" position = "floating"> Crea il tuo account </ion-title>
-
-  <form class = "form">
-    <ion-item lines="full">
-      <ion-label position="floating">Nome</ion-label>
-      <ion-input type="text" required></ion-input>
+  <form class = "spacing">
+    <ion-item >
+      <ion-label class = "labels" position="floating">Nome</ion-label>
+      <ion-input class = "inputs" type="text" required></ion-input>
     </ion-item>
 
-    <ion-item lines="full">
-      <ion-label position="floating"> Cognome </ion-label>
-      <ion-input type="text" required></ion-input>
+    <ion-item >
+      <ion-label class = "labels" position="floating"> Cognome </ion-label>
+      <ion-input class = "inputs" type="text" required></ion-input>
     </ion-item>
 
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" required></ion-input>
+    <ion-item >
+      <ion-label class = "labels" position="floating">Email</ion-label>
+      <ion-input class = "inputs" type="text" required [(ngModel)] = "username" [ngModelOptions]="{standalone: true}" ></ion-input>
     </ion-item>
 
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" required></ion-input>
+    <ion-item >
+      <ion-label class = "labels" position="floating">Password</ion-label>
+      <ion-input class = "inputs" type="password" required [(ngModel)] = "password" [ngModelOptions]="{standalone: true}" ></ion-input>
+    </ion-item>
+
+    <ion-item >
+      <ion-label class = "labels" position="floating">Conferma Password</ion-label>
+      <ion-input class = "inputs" type="password" required [(ngModel)] = "cpassword" [ngModelOptions]="{standalone: true}" ></ion-input>
     </ion-item>
 
     <ion-row>
       <ion-col>
-        <ion-button [routerLink]="['/registered']" type="submit" color="primary" expand="block">Registrati</ion-button>
+        <ion-button type="submit" color="primary" expand="block" (click) = "signup()">Registrati</ion-button>
       </ion-col>
     </ion-row>
   </form>

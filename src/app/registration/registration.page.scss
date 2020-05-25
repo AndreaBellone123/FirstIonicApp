@@ -1,31 +1,35 @@
-.form{
-
-    margin-top:65px;
+.labels {
+   height : fit-content;
+   color: darkorange;
+   font-size:16px;
+   font-weight: bold;
 }
+
+.inputs {
+    height : fit-content;
+ }
+
 
 #logo{ 
 
-    height: 35%;
-    width: 35%;
+    height: 120px;
+    width: 120px;
+    margin-top:35px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-  
+
   }
 
-#inf{
+.appb{
     
-    font-weight: bold;
-    color: darkorange;
-    text-align: center;
-
-  }
-
-  #barra{
+    color:darkorange;
+    font-weight:bolder;
     
-    font-weight: bold;
-    color: darkorange;
-    text-align: center;
 
-  }
+}
+
+
+.spacing{
+    margin-top: 50px;
+}
+

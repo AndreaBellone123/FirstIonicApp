@@ -1,29 +1,32 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Log In</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <form>
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
-
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" required></ion-input>
-    </ion-item>
-
-    <ion-row>
-      <ion-col>
-        <ion-button [routerLink]="['/signedin']" type="submit" color="primary" expand="block">Accedi</ion-button>
-        <a [routerLink]="['/forgot-password']" class="small-text">Password dimenticata?</a>
-      </ion-col>
-    </ion-row>
-  </form>
-</ion-content>
+	<ion-toolbar>
+	  <ion-buttons slot="start">
+		<ion-back-button></ion-back-button>
+	  </ion-buttons>
+	  <ion-title class = "appb">Log In</ion-title>
+	</ion-toolbar>
+  </ion-header>
+  
+  <ion-content> 
+  
+	<ion-img id = "logo" src = "../../assets/icon/app_logo.png"> </ion-img>
+  
+	<form class = "spacing">
+	  <ion-item lines="full">
+		<ion-label class = "labels" position="floating">Email</ion-label>
+		<ion-input class = "inputs" type="text" required  [(ngModel)] = "username" [ngModelOptions]="{standalone: true}"></ion-input>
+	  </ion-item>
+  
+	  <ion-item lines="full">
+		<ion-label class = "labels" position="floating">Password</ion-label>
+		<ion-input class = "inputs" type="password" required [(ngModel)] = "password" [ngModelOptions]="{standalone: true}" ></ion-input>
+	  </ion-item>
+  
+	  <ion-row>
+		<ion-col>
+		  <ion-button  type="submit" color="primary" expand="block" (click) = "login()">Accedi</ion-button>
+		  <a [routerLink]="['/forgot-password']" class="small-text">Password dimenticata?</a>
+		</ion-col>
+	  </ion-row>
+	</form>
+  </ion-content>

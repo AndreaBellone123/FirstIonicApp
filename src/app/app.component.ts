@@ -1,5 +1,4 @@
 import { Component} from '@angular/core';
-import { AuthService } from './auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,8 +12,7 @@ export class AppComponent{
   title = 'Routing Module - Route Guards Demo';
 
  
-  constructor (private authService:AuthService, 
-    private router:Router) {
+  constructor ( private router:Router) {
 }
 
 } 

@@ -6,6 +6,8 @@ import { SignedinPageRoutingModule } from './signedin-routing.module';
 import { SignedinPage } from './signedin.page';
 import {Geolocation} from '@ionic-native/geolocation/ngx';
 
+
+
 @NgModule({
 
   providers : [Geolocation],
@@ -15,6 +17,7 @@ import {Geolocation} from '@ionic-native/geolocation/ngx';
     FormsModule,
     IonicModule,
     SignedinPageRoutingModule,
+
     
   ],
   declarations: [SignedinPage]
