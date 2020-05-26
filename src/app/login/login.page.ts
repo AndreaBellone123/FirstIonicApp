@@ -9,20 +9,25 @@ import { UserService } from '../user.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
 export class LoginPage implements OnInit {
 
-
 	username: string = ""
-	password: string = ""
+  password: string = ""
+  i : any
 
 	constructor(public afAuth: AngularFireAuth,public router: Router,public alert : AlertController,public user : UserService) { }
 
 	ngOnInit() {
+
 	}
 
 	async login() {
-		const { username, password } = this
+
+    const { username, password } = this
+    
 		try {
+
       const res = await this.afAuth.signInWithEmailAndPassword(username , password)
 
       if(res.user) {
@@ -30,14 +35,27 @@ export class LoginPage implements OnInit {
         this.user.setUser({
           username ,
           uid: res.user.uid
+          
         })
 
-        this.router.navigate(['/signedin'])
-        this.showAlert("Successo","Entra nell'area riservata")
+        if(res.user.emailVerified === true && this.username.includes("@aprimail.com") || ("@chordme.com" )) {
+
+          this.router.navigate(['/signedin'])
+          this.showAlert("Successo","Entra nell'area riservata")
+  
+        }
+
+        else {
+
+          this.showAlert("Errore","Verifica il tuo indirizzo email prima di proseguire")
+
+        }
 
       }
 		
-		} catch(err) {
+    } 
+      catch(err) {
+
       console.dir(err)
 
       if(this.username === ""){
@@ -46,11 +64,9 @@ export class LoginPage implements OnInit {
 
       }
 
-
      else if(this.password === ""){
 
         this.showAlert("Errore","Inserire password")
-
         
       }
       
@@ -80,10 +96,10 @@ export class LoginPage implements OnInit {
       header,
       message,
       buttons : ["Ok"]
+
     })
 
     await alert.present()
 
   }
-
 }

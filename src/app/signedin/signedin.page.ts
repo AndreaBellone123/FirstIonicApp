@@ -19,18 +19,24 @@ export class SignedinPage{
   constructor(private geolocation: Geolocation) {
 
     this.geolocation.getCurrentPosition().then((resp) => {
+
       this.mapCenter.lat = resp.coords.latitude;
       this.mapCenter.lng = resp.coords.longitude;
       this.mapOptions = {
+
         zoom: 15,
         center: this.mapCenter
+
       };
 
       this.map = new google.maps.Map(this.mapElement.nativeElement, this.mapOptions);
+
     })
     
     .catch((error) => {
+
       console.log('Error getting location', error);
+      
     });
   }
 }

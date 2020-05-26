@@ -32,9 +32,15 @@ export class RegistrationPage implements OnInit {
     }
 
 		try {
+
       const res = await this.afAuth.createUserWithEmailAndPassword(username , password)
 
+      if(res.user && res.user.emailVerified === false) {
+        res.user.sendEmailVerification()
+        
+        this.showAlert("Successo","E' stata inviata una email di conferma all'indirizzo di posta elettronica fornito")
 
+      }
       
       console.log(res)
 
@@ -48,8 +54,6 @@ export class RegistrationPage implements OnInit {
         uid: res.user.uid
       })
       
-      this.showAlert("Successo","Account creato con successo,effettua il login")
-
       this.router.navigate(['/login'])
 
 		
