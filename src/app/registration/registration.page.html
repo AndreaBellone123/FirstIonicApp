@@ -3,7 +3,7 @@
     <ion-buttons size = "small" slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title class = "appb"> Registrati </ion-title>
+    <ion-title text-center class = "appb"> Registrati </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,12 +14,12 @@
   <form class = "spacing">
     <ion-item >
       <ion-label class = "labels" position="floating">Nome</ion-label>
-      <ion-input class = "inputs" type="text" required></ion-input>
+      <ion-input class = "inputs" type="text" required [(ngModel)] = "name" [ngModelOptions]="{standalone: true}"></ion-input>
     </ion-item>
 
     <ion-item >
       <ion-label class = "labels" position="floating"> Cognome </ion-label>
-      <ion-input class = "inputs" type="text" required></ion-input>
+      <ion-input class = "inputs" type="text" required [(ngModel)] = "surname" [ngModelOptions]="{standalone: true}"></ion-input>
     </ion-item>
 
     <ion-item >

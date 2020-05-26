@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth'
-import { auth } from 'firebase/app'
 import { Router } from '@angular/router';
 import {AlertController} from '@ionic/angular';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +11,11 @@ import {AlertController} from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
+
 	username: string = ""
 	password: string = ""
 
-	constructor(public afAuth: AngularFireAuth,public router: Router,public alert : AlertController) { }
+	constructor(public afAuth: AngularFireAuth,public router: Router,public alert : AlertController,public user : UserService) { }
 
 	ngOnInit() {
 	}
@@ -24,28 +25,52 @@ export class LoginPage implements OnInit {
 		try {
       const res = await this.afAuth.signInWithEmailAndPassword(username , password)
 
-      this.router.navigate(['/signedin'])
-      this.showAlert("Successo","Entra nell'area riservata")
+      if(res.user) {
 
+        this.user.setUser({
+          username ,
+          uid: res.user.uid
+        })
+
+        this.router.navigate(['/signedin'])
+        this.showAlert("Successo","Entra nell'area riservata")
+
+      }
 		
 		} catch(err) {
       console.dir(err)
+
+      if(this.username === ""){
+
+        this.showAlert("Errore","Inserire nome utente")
+
+      }
+
+
+     else if(this.password === ""){
+
+        this.showAlert("Errore","Inserire password")
+
+        
+      }
       
-      if(err.code === 'auth/user-not-found') {
+      else if(err.code === 'auth/user-not-found') {
         this.showAlert("Errore","Utente non trovato")
 
       }
 
-      if(err.code === 'auth/wrong-password'){
+      else if(err.code === 'auth/wrong-password'){
         this.showAlert("Errore","Password Errata")
 
       }
 
-      if(err.code === 'auth/invalid-email') {
+      else if(err.code === 'auth/invalid-email') {
         this.showAlert("Errore","Email non valida")
       }
 
-		
+      else {
+        this.showAlert("Errore","Si è verificato un errore durante l'accesso all'account,riprova più tardi")
+      }
 		}
   }
   
