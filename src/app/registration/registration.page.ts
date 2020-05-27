@@ -22,12 +22,15 @@ export class RegistrationPage implements OnInit {
     public afstore : AngularFirestore, public user : UserService) { }
 
   ngOnInit() {
+
   }
 
   async signup() {
+
     const { name , surname , username, password , cpassword } = this
     
     if(password !== cpassword){
+
       this.showAlert("Errore","Le password inserite non corrispondono")
     }
 
@@ -36,6 +39,7 @@ export class RegistrationPage implements OnInit {
       const res = await this.afAuth.createUserWithEmailAndPassword(username , password)
 
       if(res.user && res.user.emailVerified === false) {
+
         res.user.sendEmailVerification()
         
         this.showAlert("Successo","E' stata inviata una email di conferma all'indirizzo di posta elettronica fornito")
@@ -47,26 +51,30 @@ export class RegistrationPage implements OnInit {
       this.afstore.doc(`utenti/${res.user.uid}`).set({
         username,
         admin : true
+
       })
 
       this.user.setUser({
         username ,
         uid: res.user.uid
+
       })
       
       this.router.navigate(['/login'])
 
-		
     } 
       catch(err) {
+
       console.dir(err)
 
       if(this.name === "") {
+
         this.showAlert("Errore","Inserisci un nome valido")
 
       }
 
       else if(this.surname === "") {
+
         this.showAlert("Errore","Inserisci un cognome valido")
 
       }
@@ -79,11 +87,15 @@ export class RegistrationPage implements OnInit {
       }
       
      else if(err.code === 'auth/invalid-email') {
+
         this.showAlert("Errore","Email non valida")
+
       }
 
       else if(err.code === 'auth/weak-password') {
+
         this.showAlert("Errore","La password deve contenere almeno sei caratteri")
+
       }
 
       else {  
@@ -98,9 +110,11 @@ export class RegistrationPage implements OnInit {
   async showAlert(header : string,message:string){
 
     const alert = await this.alert.create({
+      
       header,
       message,
       buttons : ["Ok"]
+
     })
 
     await alert.present()

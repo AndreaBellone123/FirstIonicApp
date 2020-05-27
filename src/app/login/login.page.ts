@@ -35,10 +35,10 @@ export class LoginPage implements OnInit {
         this.user.setUser({
           username ,
           uid: res.user.uid
-          
+
         })
 
-        if(res.user.emailVerified === true && this.username.includes("@aprimail.com") || ("@chordme.com" )) {
+        if(res.user.emailVerified === true ) {
 
           this.router.navigate(['/signedin'])
           this.showAlert("Successo","Entra nell'area riservata")
