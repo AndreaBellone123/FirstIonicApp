@@ -30,41 +30,6 @@
 
 }
 
-.divider {
-
-  display: flex;
-  
-  &:before,
-  &:after {
-    content: "";
-    flex: 1;
-
-  }
-}
-
-.line {
-
-  align-items: center;
-  margin: 1em -1em;
-  color: #cccccc;
-  
-  &:before,
-  &:after {
-    height: 1px;
-    margin: 0 1em;
-
-  }
-} 
-
-.one-line {
-
-  &:before,
-  &:after {
-     background: #cccccc;
-
-  }
-}
-
 .auth-form ion-grid,
 .auth-form ion-row {
 
@@ -73,36 +38,34 @@
 
 }
 
-.already {
-
-  display: block;
-  text-align: center;
-  padding-bottom: 10px;
-  color: darkorange;
-
-}
-
 .registration_button{
 
-  margin-top: 165px;
-  background-color: darkorange;
-  border-radius: 15px;
+  display: block;
+  margin-top : 5px;
+  width: 134px;
+  height: 34px;
+  background-color: #e87a00;
+  font-family: "SF-Pro-Display-Bold";
+  border-radius: 25px;
 
 }
 
 .registration_button:hover{
 
- 
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 
 }
 
-
-
 .log_B{
 
-  background-color: darkorange;
-  border-radius: 15px;
+  display: block;
+  margin-top:5px;
+  width: 134px;
+  height: 34px;
+  background-color: #e87a00;
+  font-family: "SF-Pro-Display-Bold";
+  color:#ffffff;
+  border-radius: 25px;
 
 }
 
@@ -112,26 +75,74 @@
 
 }
 
+ion-content{
 
-#logo{ 
-
-  height: 40%;
-  width: 40%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
+  --background: #fff url("../../assets/icon/bb.png") no-repeat center center / cover;
 
 }
 
 
-#App_name{
+.Titolo{
 
-  color:darkorange;
-  font-size: 16;
-  font-weight: bolder;
-  display : flex;
-  justify-content: center;
-  margin-top: 30px;
+  display: block;
+  margin-top: 55px;
+  width: 259px;
+  height: 61px;
+  color: #ffffff;
+  font-family: "SF-Pro-Display-Bold";
+  font-size: 50px;
+  font-weight: 700;
+  white-space: pre;
+  margin-left: 12px;
 
 }
+
+.Sottotitolo{
+
+  display: block;
+  margin-top:1px;
+  width: 266px;
+  height: 22px;
+  opacity: 0.6;
+  color: #ffffff;
+  font-family: "SF-Pro-Display-Bold";
+  font-size: 17px;
+  font-weight: 700;
+  white-space: pre;
+  margin-left:20px;
+
+}
+
+ion-back-button {
+  --icon : url("../../assets/icon/back_icon.png");
+}
+
+.accedi{
+
+  display: block;
+  font-family: "SF-Pro-Display-Light";
+  color: #ffffff;
+
+}
+
+.registrati{
+
+  display: block;
+  margin-top: 50px;
+  font-family: "SF-Pro-Display-Light";
+  color: #ffffff;
+
+}
+
+.acc{
+
+  position: absolute;
+  margin-top:30px;
+  left:50%;
+  top:40%;
+  -webkit-transform: translate(-49%,-49%);
+  transform: translate(-49%,-49%);
+  width: 90%;
+
+}
+
