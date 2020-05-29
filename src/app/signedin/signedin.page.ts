@@ -37,7 +37,7 @@ export class SignedinPage{
       'Aboriginal people of the area. It has many springs, waterholes, '+
       'rock caves and ancient paintings. Uluru is listed as a World '+
       'Heritage Site.</p>'+
-      '<button> Cliccami </button>'+
+      '<button"> Cliccami </button>'+
       '</div>'+
       '</div>';
 
