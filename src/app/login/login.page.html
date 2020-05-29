@@ -1,7 +1,9 @@
-<ion-header>
+<ion-header class = "ion-no-border">
 	<ion-toolbar>
 	  <ion-buttons slot="start">
-		<ion-back-button >
+		<ion-back-button mode = "md"  icon="arrow-back" color = "primary">
+
+
 			
 		</ion-back-button>
 	  </ion-buttons>
@@ -21,7 +23,7 @@
 
     
 
-		<ion-input type="text" style = "margin-left : 10px !important ;   margin-top: 35px !important;
+		<ion-input mode = "md" type="text" style = "margin-left : 10px !important ;   margin-top: 40px !important;
 		font-family : 'SF-Pro-Display-Light','sans serif'; border-radius: 25px; text-align: left;"  required  [(ngModel)] = "username" placeholder = "Email" [ngModelOptions]="{standalone: true}"> 
 		
 
@@ -29,7 +31,7 @@
 
   
 
-		<ion-input type="password" style = "margin-left : 10px !important ; margin-top: 38px !important; font-family : 'SF-Pro-Display-Light','sans serif'; text-align: left; border-radius: 25px;"  required [(ngModel)] = "password" placeholder = "Password" [ngModelOptions]="{standalone: true}" ></ion-input>
+		<ion-input mode = "md" type="password" style = "margin-left : 10px !important ; margin-top: 25px !important; font-family : 'SF-Pro-Display-Light','sans serif'; text-align: left; border-radius: 25px;"  required [(ngModel)] = "password" placeholder = "Password" [ngModelOptions]="{standalone: true}" ></ion-input>
 
 		<br>
 		  
@@ -39,7 +41,7 @@
 		<br>
 
 		
-		<ion-button shape = "round" type="submit" (click) = "login()">Accedi</ion-button>
+		<ion-button mode = "ios" shape = "round" type="submit" (click) = "login()">Accedi</ion-button>
 	
 
 	</div>
