@@ -16,7 +16,6 @@ export class RegistrationPage implements OnInit {
   surname : string  = ""
   username: string = ""
   password: string = ""
-  cpassword : string  = ""
 
   constructor( public afAuth: AngularFireAuth,public router: Router,public alert : AlertController,
     public afstore : AngularFirestore, public user : UserService) { }
@@ -27,12 +26,7 @@ export class RegistrationPage implements OnInit {
 
   async signup() {
 
-    const { name , surname , username, password , cpassword } = this
-    
-    if(password !== cpassword){
-
-      this.showAlert("Errore","Le password inserite non corrispondono")
-    }
+    const { name , surname , username, password} = this
 
 		try {
 

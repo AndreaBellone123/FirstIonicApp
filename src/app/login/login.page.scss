@@ -1,46 +1,36 @@
 
-  .appb{
-
-    
-    display: block;
-    text-align: center;
-    color:darkorange;
-    font-weight:bolder;
-    margin-right:60px;
-    
-
-}
-
 .labels {
+
+    display: block;
+    margin-top: 5px;
     height : fit-content;
-    color: darkorange;
+    color: #ffffff;
+    margin-left: 10px;
     font-size:16px;
     font-weight: bold;
  }
- 
- .inputs {
-     height : fit-content;
-  }
- 
-.spacing{
-    margin-top: 100px;
-}
-
 
 .a{
     display:block;
-    text-align: center;
-    color:darkorange;
+    color:#ffffff;
+    margin-left : 10px;
     
 }
 
-.lB{
-    display: block;
-    border-radius: 25px;
+ion-button {
 
+      display: block;
+		  border-radius: 25px;
+		  margin-top:5px;
+		  width: 134px;
+		  height: 34px;
+		  background-color: #e87a00;
+      font-family: 'SF-Pro-Display-Bold'; 
+      color:#ffffff;
+      margin-left : 10px;
 }
 
-.lB:hover{
+ion-button:hover{
 
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   
@@ -48,15 +38,14 @@
 
   ion-content{
 
-    --background: #fff url("../../assets/icon/bb.png") no-repeat center center / cover;
-  
+    --background: #fff url("../../assets/icon/bb.png") no-repeat center / cover;
+ 
   }
 
-  
-.Titolo{
+  .Titolo{
 
     display: block;
-    margin-top: 55px;
+    margin-top: 5px;
     width: 259px;
     height: 61px;
     color: #ffffff;
@@ -68,13 +57,14 @@
   }
   
   .Sottotitolo{
+
     display: block;
     margin-top:1px;
     width: 266px;
     height: 22px;
     opacity: 0.6;
     color: #ffffff;
-    font-family: "SF Pro Display-Light";
+    font-family: "SF-Pro-Display-Bold";
     font-size: 17px;
     font-weight: 700;
     white-space: pre;
@@ -85,5 +75,23 @@
 
   ion-toolbar{
       --background : #045C84;
+      --border-color : #045C84;
+
   }
+
+ion-input{
+
+  display: block;
+  width: 206px;
+  height: 34px;
+  border-radius: 25px;
+  --background : rgba(255, 255, 255, 0.38);
+  margin-left: 10px;
+
+}
+
+ion-input::-webkit-input-placeholder {
+  font-family: 'SF-Pro-Display-Bold', sans-serif;
+}
+
 

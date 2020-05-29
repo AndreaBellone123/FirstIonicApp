@@ -1,46 +1,41 @@
 <ion-header>
-  <ion-toolbar align-title = "center">
-    <ion-buttons size = "small" slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title text-center class = "appb"> Registrati </ion-title>
-  </ion-toolbar>
-</ion-header>
+	<ion-toolbar>
+	  <ion-buttons slot="start">
+		<ion-back-button >
+			
+		</ion-back-button>
+	  </ion-buttons>
+	</ion-toolbar>
+  </ion-header>
+  
 
 <ion-content>
 
-  <ion-img id = "logo" src = "../../assets/icon/app_logo.png"> </ion-img>
+  <div>
 
-  <form class = "spacing">
-    <ion-item >
-      <ion-label class = "labels" position="floating">Nome</ion-label>
-      <ion-input class = "inputs" type="text" required [(ngModel)] = "name" [ngModelOptions]="{standalone: true}"></ion-input>
-    </ion-item>
+    <ion-label class = "Titolo">      
 
-    <ion-item >
-      <ion-label class = "labels" position="floating"> Cognome </ion-label>
-      <ion-input class = "inputs" type="text" required [(ngModel)] = "surname" [ngModelOptions]="{standalone: true}"></ion-input>
-    </ion-item>
+      Benvenuto!
 
-    <ion-item >
-      <ion-label class = "labels" position="floating">Email</ion-label>
-      <ion-input class = "inputs" type="text" required [(ngModel)] = "username" [ngModelOptions]="{standalone: true}" ></ion-input>
-    </ion-item>
+      </ion-label>
+    
+     <ion-label class = "Sottotitolo"> Prenota ora il tuo posto in spiaggia.  </ion-label>
 
-    <ion-item >
-      <ion-label class = "labels" position="floating">Password</ion-label>
-      <ion-input class = "inputs" type="password" required [(ngModel)] = "password" [ngModelOptions]="{standalone: true}" ></ion-input>
-    </ion-item>
 
-    <ion-item >
-      <ion-label class = "labels" position="floating">Conferma Password</ion-label>
-      <ion-input class = "inputs" type="password" required [(ngModel)] = "cpassword" [ngModelOptions]="{standalone: true}" ></ion-input>
-    </ion-item>
+      <ion-input style = "margin-left : 10px !important ; margin-top: 20px !important; font-family : 'SF-Pro-Display-Light','sans serif'; text-align: left; border-radius: 25px;" type="text" placeholder = "Nome" required [(ngModel)] = "name" [ngModelOptions]="{standalone: true}"></ion-input>
 
-    <ion-row>
-      <ion-col>
-        <ion-button class =  "buttonR" type="submit" color="primary" expand="block" (click) = "signup()">Registrati</ion-button>
-      </ion-col>
-    </ion-row>
-  </form>
+
+      <ion-input style = "margin-left : 10px !important ; margin-top: 25px !important; font-family : 'SF-Pro-Display-Light','sans serif'; text-align: left; border-radius: 25px;" type="text" placeholder = "Cognome" required [(ngModel)] = "surname" [ngModelOptions]="{standalone: true}"></ion-input>
+
+
+      <ion-input style = "margin-left : 10px !important ; margin-top: 30px !important; font-family : 'SF-Pro-Display-Light','sans serif'; text-align: left; border-radius: 25px;"  type="text" placeholder = "Email" required [(ngModel)] = "username" [ngModelOptions]="{standalone: true}" ></ion-input>
+    
+
+      <ion-input style = "margin-left : 10px !important ; margin-top: 30px !important; font-family : 'SF-Pro-Display-Light','sans serif'; text-align: left; border-radius: 25px;" type="password" placeholder = "Password" required [(ngModel)] = "password" [ngModelOptions]="{standalone: true}" ></ion-input>
+
+    <br>
+
+    <ion-button shape = "round" type="submit" color="primary" expand="block" (click) = "signup()">Registrati</ion-button>
+     
+  </div>
 </ion-content>

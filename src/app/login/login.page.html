@@ -1,36 +1,46 @@
 <ion-header>
 	<ion-toolbar>
 	  <ion-buttons slot="start">
-		<ion-back-button icon = "arrow-back-outline" text = "" >
+		<ion-back-button >
+			
 		</ion-back-button>
 	  </ion-buttons>
 	</ion-toolbar>
   </ion-header>
   
   <ion-content> 
+	 <div> 
 
 	<ion-label class = "Titolo">      
 		Benvenuto!
 	  </ion-label>
 	
 	 <ion-label class = "Sottotitolo"> Prenota ora il tuo posto in spiaggia.  </ion-label>
+
+	 <ion-label class = "labels" position="floating"> Effettua il login </ion-label>
+
     
-	<form class = "spacing">
-	  <ion-item lines="full">
-		<ion-label class = "labels" position="floating">Email</ion-label>
-		<ion-input class = "inputs" type="text" required  [(ngModel)] = "username" [ngModelOptions]="{standalone: true}"></ion-input>
-	  </ion-item>
+
+		<ion-input type="text" style = "margin-left : 10px !important ;   margin-top: 35px !important;
+		font-family : 'SF-Pro-Display-Light','sans serif'; border-radius: 25px; text-align: left;"  required  [(ngModel)] = "username" placeholder = "Email" [ngModelOptions]="{standalone: true}"> 
+		
+
+		</ion-input>
+
   
-	  <ion-item lines="full">
-		<ion-label class = "labels" position="floating">Password</ion-label>
-		<ion-input class = "inputs" type="password" required [(ngModel)] = "password" [ngModelOptions]="{standalone: true}" ></ion-input>
-	  </ion-item>
-  
-	  <ion-row>
-		<ion-col>
-		  <ion-button class = "lB" type="submit" color="primary" expand="block" (click) = "login()">Accedi</ion-button>
-		  <a [routerLink]="['/forgot-password']" class="a">Password dimenticata?</a>
-		</ion-col>
-	  </ion-row>
-	</form>
+
+		<ion-input type="password" style = "margin-left : 10px !important ; margin-top: 38px !important; font-family : 'SF-Pro-Display-Light','sans serif'; text-align: left; border-radius: 25px;"  required [(ngModel)] = "password" placeholder = "Password" [ngModelOptions]="{standalone: true}" ></ion-input>
+
+		<br>
+		  
+		<a [routerLink]="['/forgot-password']" class="a">Password dimenticata?</a>
+
+
+		<br>
+
+		
+		<ion-button shape = "round" type="submit" (click) = "login()">Accedi</ion-button>
+	
+
+	</div>
   </ion-content>
