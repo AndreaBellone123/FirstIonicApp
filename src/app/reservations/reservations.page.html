@@ -1,0 +1,36 @@
+<ion-header class = "ion-no-border">
+	<ion-toolbar >
+	  <ion-buttons slot="start">
+    <ion-back-button mode = "md" icon="arrow-back" color = "primary">
+		</ion-back-button>
+	  </ion-buttons>
+	</ion-toolbar>
+  </ion-header>
+  
+<ion-content> 
+
+<ion-item> 
+  <ion-input type = "text" placeholder = "Qr Data" [(ngModel)]="value">
+  </ion-input>
+</ion-item>
+
+
+<ion-button expand = "full" (click)="scanCode()" color= "primary"> 
+  Scan Code
+</ion-button>
+
+  <ngx-qrcode style = "text-align:center"
+  [elementType]="elementType" 
+  [value] = "value"
+  cssClass = "aclass"
+  errorCorrectionLevel = "L">
+</ngx-qrcode>
+  
+<ion-card *ngIf="scannedCode">
+  <ion-card-content>
+    Risultati dello scan : {{scannedCode}}
+  </ion-card-content> 
+
+</ion-card>
+
+</ion-content>

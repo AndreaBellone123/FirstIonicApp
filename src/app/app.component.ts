@@ -10,8 +10,7 @@ import { Router } from '@angular/router';
 export class AppComponent{
 
   title = 'Routing Module - Route Guards Demo';
-
- 
+  
   constructor ( private router:Router) {
 }
 

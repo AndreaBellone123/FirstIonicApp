@@ -12,21 +12,23 @@ import firebaseConfig from './firebase';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { UserService } from './user.service';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
-
-
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode/';
+import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx'
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [ AngularFirestoreModule,AngularFireModule,AngularFireAuthModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule,RouterModule.forRoot(routes),
+  imports: [ AngularFirestoreModule,AngularFireModule,AngularFireAuthModule,BrowserModule ,IonicModule.forRoot(), AppRoutingModule,RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(firebaseConfig),
     ],
   
   providers: [
+    
+    NgxQRCodeModule,
     StatusBar,
     SplashScreen,
     { provide:  RouteReuseStrategy, useClass: IonicRouteStrategy ,
-      },UserService
+      },UserService,BarcodeScanner
   ],
   bootstrap: [AppComponent]
 })
