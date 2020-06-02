@@ -5,8 +5,25 @@ ion-toolbar{
 
 }
 
-ion-content {
-  
-  --ion-background-color: yellow;
+
+ion-content{
+
+  display: block;
+  --background: #fff url("../../assets/icon/bb.png") no-repeat center / cover;
+
 }
 
+
+ion-button{
+    
+  display: block;
+  border-radius: 25px;
+  margin-top:5px;
+  width: 134px;
+  height: 34px;
+  background-color: #e87a00;
+  font-family: 'SF-Pro-Display-Bold'; 
+  color:#ffffff;
+  margin-left : 10px;
+
+}

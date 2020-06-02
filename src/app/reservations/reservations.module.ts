@@ -13,6 +13,8 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 
 
+
+
 @NgModule({
   imports: [
     CommonModule,

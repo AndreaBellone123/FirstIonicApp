@@ -10,21 +10,22 @@
 <ion-content> 
 
 <ion-item> 
-  <ion-input type = "text" placeholder = "Qr Data" [(ngModel)]="value">
+  <ion-input type = "text" placeholder = "Dati da codificare" [(ngModel)]="value">
   </ion-input>
 </ion-item>
 
+<ngx-qrcode style = "text-align:center"
+[elementType]="elementType" 
+[value] = "value"
+cssClass = "aclass"
+errorCorrectionLevel = "L">
+</ngx-qrcode>
 
-<ion-button expand = "full" (click)="scanCode()" color= "primary"> 
-  Scan Code
+<ion-button mode = "ios" shape = "round"  style = "margin-top: 250px;" expand = "block" (click)="scanCode()" color= "primary"> 
+  Scan
 </ion-button>
 
-  <ngx-qrcode style = "text-align:center"
-  [elementType]="elementType" 
-  [value] = "value"
-  cssClass = "aclass"
-  errorCorrectionLevel = "L">
-</ngx-qrcode>
+
   
 <ion-card *ngIf="scannedCode">
   <ion-card-content>

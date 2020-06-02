@@ -1,3 +1,4 @@
+  
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth'
 import { Router } from '@angular/router';
@@ -40,7 +41,7 @@ export class LoginPage implements OnInit {
 
         if(res.user.emailVerified === true ) {
 
-          this.router.navigate(['/signedin'])
+          this.router.navigate(['/reservations'])
           this.showAlert("Successo","Entra nell'area riservata")
   
         }
