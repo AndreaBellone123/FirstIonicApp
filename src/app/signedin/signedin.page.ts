@@ -3,6 +3,9 @@ import {Geolocation} from '@ionic-native/geolocation/ngx';
 import {AlertController} from '@ionic/angular';
 import { mapToMapExpression } from '@angular/compiler/src/render3/util';
 import * as $ from 'jquery';
+import{Observable} from 'rxjs';
+import{map,take} from 'rxjs/operators';
+import {UserService,user} from '../user.service';
 declare var google;
 
 @Component({
@@ -11,17 +14,20 @@ declare var google;
   styleUrls: ['./signedin.page.scss'],
 })
 
-export class SignedinPage{
+export class SignedinPage implements OnInit{
 
   @ViewChild('map', { static: true }) mapElement;
-  
+
+  private utenti : Observable<user[]>;
   map: any;
   mapOptions: any;
   mapCenter = { lat: null, lng: null };
   LtdLng = { lat: 40.269704, lng: 17.883726 };
   marker : any;
+  posti : string = "24";
   
-  constructor(public geolocation: Geolocation,public alert : AlertController) {
+  constructor(public geolocation: Geolocation,public alert : AlertController,public user : UserService) {
+
 
     this.geolocation.getCurrentPosition().then((resp) => {
 
@@ -46,7 +52,10 @@ export class SignedinPage{
         this.marker.addListener('click',()=>{
           console.log('Marker clicked');
           var infoWindow = new google.maps.InfoWindow(
-            {content: '<div>'+ "Ciao" + '<br>' + '<br>' + '<button  id="myInfoWinDiv">' + "Cliccami" + '</button>' + '</div>', position: this.LtdLng});
+            {content: '<div>'+ '<img src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F1.bp.blogspot.com%2F-fo_K9Wk76sg%2FV35A7i1qMoI%2FAAAAAAAABUk%2FpboHuOAPSB8jCA3vlsQKvEKLKFXRhxnFwCLcB%2Fs1600%2Fb.png&f=1&nofb=1" width="50" height="50" >' + 
+            "Posti disponibili : " + this.posti  + '<br>' + '<br>' + 
+            '<button style="background-color:blue;"  id="myInfoWinDiv">' + "Cliccami" + '</button>' 
+            + '</div>', position: this.LtdLng});
           infoWindow.open(this.map);
 
           infoWindow.addListener('domready',function(){
@@ -63,6 +72,12 @@ export class SignedinPage{
       this.showAlert('Error getting location', error);
       
     });
+  }
+
+  ngOnInit(){
+
+    this.utenti = this.user.getUtenti();
+    
   }
 
 async showAlert(header : string,message:string){

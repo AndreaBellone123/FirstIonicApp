@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth'
 import { Router } from '@angular/router';
 import {AlertController} from '@ionic/angular';
-import {AngularFirestore} from '@angular/fire/firestore';
-import { UserService } from '../user.service';
-
+import {AngularFirestore,AngularFirestoreCollection,DocumentReference} from '@angular/fire/firestore';
+import{UserService} from'../user.service';
+ 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.page.html',
@@ -17,8 +17,12 @@ export class RegistrationPage implements OnInit {
   username: string = ""
   password: string = ""
 
+
   constructor( public afAuth: AngularFireAuth,public router: Router,public alert : AlertController,
-    public afstore : AngularFirestore, public user : UserService) { }
+    public afstore : AngularFirestore,public user : UserService) {
+
+
+     }
 
   ngOnInit() {
 
@@ -27,6 +31,8 @@ export class RegistrationPage implements OnInit {
   async signup() {
 
     const { name , surname , username, password} = this
+
+
 
 		try {
 
@@ -44,7 +50,7 @@ export class RegistrationPage implements OnInit {
 
       this.afstore.doc(`utenti/${res.user.uid}`).set({
         username,
-        admin : true
+        admin : false
 
       })
 
