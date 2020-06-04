@@ -41,7 +41,7 @@ export class LoginPage implements OnInit {
 
         if(res.user.emailVerified === true ) {
 
-          this.router.navigate(['/reservations'])
+          this.router.navigate(['/signedin'])
           this.showAlert("Successo","Entra nell'area riservata")
   
         }

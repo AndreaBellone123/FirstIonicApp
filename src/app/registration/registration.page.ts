@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth'
-import { Router } from '@angular/router';
+import { Router ,ActivatedRoute} from '@angular/router';
 import {AlertController} from '@ionic/angular';
 import {AngularFirestore,AngularFirestoreCollection,DocumentReference} from '@angular/fire/firestore';
 import{UserService} from'../user.service';
- 
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.page.html',

@@ -17,6 +17,7 @@ import {Geolocation} from '@ionic-native/geolocation/ngx';
     FormsModule,
     IonicModule,
     SignedinPageRoutingModule,
+  
 
     
   ],

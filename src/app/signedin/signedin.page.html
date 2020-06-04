@@ -7,16 +7,42 @@
   </ion-toolbar>
 </ion-header>
 
+
+<div *ngIf = "isActive" id ="cc"> 
+<ion-card>
+  <ion-card-header>
+    <ion-button class ="close" (click) = "chiudiFinestra()"> 
+      <ion-icon name="close"></ion-icon>
+    </ion-button>
+    <ion-card-title id ="title">Reservation</ion-card-title>
+</ion-card-header>
+  <ion-card-content>
+    <ion-input  mode = "md"  required  [(ngModel)] = "username" placeholder = "Email" [ngModelOptions]="{standalone: true}"> </ion-input > 
+
+    <br>
+
+    <ion-input  mode = "md" type ="password" required  [(ngModel)] = "password" placeholder = "Password" [ngModelOptions]="{standalone: true}"> </ion-input>
+
+    <ion-button id = "p" mode = "ios" shape = "round" type="submit" (click) = "reservations()">Prenota</ion-button>
+  </ion-card-content>
+</ion-card>
+</div>
+
+
 <ion-content>
 
-  <ion-list>
-
-    <ion-item *ngFor = "let user of (utenti | async)">
-      {{user.username}}
-    </ion-item>
-
-  </ion-list>
-
+   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button color = "primary">
+      <ion-icon name="menu-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button  [routerLink]="['/reservations'] "
+      ><ion-icon name="qr-code-outline"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="end">
+      <ion-fab-button><ion-icon name="person-outline"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 
   <div #map class = "map"> 
     
