@@ -7,6 +7,27 @@
   </ion-toolbar>
 </ion-header>
 
+
+<div *ngIf = "isActive" id ="cc"> 
+  <ion-card id = "cardZ">
+    <ion-card-header>
+      <ion-button fill = "clear" id ="close" (click) = "chiudiFinestra()"> 
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+      <ion-card-title id ="title">Reservation</ion-card-title>
+  </ion-card-header>
+    <ion-card-content>
+      <ion-input  mode = "md"  required  [(ngModel)] = "username" placeholder = "Email" [ngModelOptions]="{standalone: true}"> </ion-input > 
+  
+      <br>
+  
+      <ion-input  mode = "md" type ="password" required  [(ngModel)] = "password" placeholder = "Password" [ngModelOptions]="{standalone: true}"> </ion-input>
+  
+      <ion-button id = "p" mode = "ios" shape = "round" type="submit" (click) = "reservations()">Prenota</ion-button>
+    </ion-card-content>
+  </ion-card>
+  </div>
+
 <ion-content>
 
   
@@ -19,7 +40,7 @@
   </form>
 
 
-   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+   <ion-fab vertical="bottom" horizontal="center" slot="fixed" *ngIf = "cardActive">
     <ion-fab-button color = "primary">
       <ion-icon name="menu-outline"></ion-icon>
     </ion-fab-button>

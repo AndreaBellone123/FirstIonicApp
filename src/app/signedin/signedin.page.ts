@@ -36,6 +36,7 @@ export class SignedinPage implements OnInit,AfterViewInit{
   username : any =  "";
   password : any = "";
   isSelected : any = true;
+  cardActive : any = true;
 
   
   constructor(public fControl :FormControl,public fb : FormBuilder,public afAuth:AngularFireAuth,public geolocation: Geolocation,public alert : AlertController,public router: Router) {
@@ -66,7 +67,7 @@ ngAfterViewInit() : void{
 
       zoom: 15,
       center: this.mapCenter,
-      disableDefaultUI: false,
+      disableDefaultUI: true,
 
     };
 
@@ -83,7 +84,7 @@ ngAfterViewInit() : void{
         console.log('Marker clicked');
         this.isActive = true;
         this.isSelected = false;  
-
+        this.cardActive = false;
         
       })
     }
@@ -121,13 +122,15 @@ reservations(){
     if (user) {
       // user.delete();      
       console.log(user + " has logged in")
-      this.router.navigate(['/reservations',{username : username,password : password,si : true}]);
 
       
     } else {
       console.log('no users found')
     }
   });
+
+  this.router.navigate(['/reservations',{username : username,password : password,si : true}]);
+
 
 
 }
@@ -152,8 +155,8 @@ calculateAndDisplayRoute(formValues) {
     console.log('Chiuso')
     this.isActive = false;
     this.isSelected = true;
+    this.cardActive = true;
+
   }
-
-
 
 }
