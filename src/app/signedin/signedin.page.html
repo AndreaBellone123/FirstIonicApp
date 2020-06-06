@@ -7,29 +7,17 @@
   </ion-toolbar>
 </ion-header>
 
-
-<div *ngIf = "isActive" id ="cc"> 
-<ion-card>
-  <ion-card-header>
-    <ion-button class ="close" (click) = "chiudiFinestra()"> 
-      <ion-icon name="close"></ion-icon>
-    </ion-button>
-    <ion-card-title id ="title">Reservation</ion-card-title>
-</ion-card-header>
-  <ion-card-content>
-    <ion-input  mode = "md"  required  [(ngModel)] = "username" placeholder = "Email" [ngModelOptions]="{standalone: true}"> </ion-input > 
-
-    <br>
-
-    <ion-input  mode = "md" type ="password" required  [(ngModel)] = "password" placeholder = "Password" [ngModelOptions]="{standalone: true}"> </ion-input>
-
-    <ion-button id = "p" mode = "ios" shape = "round" type="submit" (click) = "reservations()">Prenota</ion-button>
-  </ion-card-content>
-</ion-card>
-</div>
-
-
 <ion-content>
+
+  
+  <form [formGroup]="directionForm" (ngSubmit)="calculateAndDisplayRoute(directionForm.value)">
+    <ion-item>
+      <ion-label position="floating">Destination</ion-label>
+      <ion-input formControlName="destination"></ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit" [disabled]="!directionForm.valid">Get Direction</ion-button>
+  </form>
+
 
    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
     <ion-fab-button color = "primary">
