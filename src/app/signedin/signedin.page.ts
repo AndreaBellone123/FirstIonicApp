@@ -117,19 +117,9 @@ reservations(){
   const { username, password } = this
 
   this.showAlert("Successo", "Username : " + username +  "Password : " + password);
-  this.afAuth.onAuthStateChanged(function(user) {
 
-    if (user) {
-      // user.delete();      
-      console.log(user + " has logged in")
 
-      
-    } else {
-      console.log('no users found')
-    }
-  });
-
-  this.router.navigate(['/reservations',{username : username,password : password,si : true}]);
+  this.router.navigate(['/profile',{username : username,password : password,si : true}]);
 
 
 

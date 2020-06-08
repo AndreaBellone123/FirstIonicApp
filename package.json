@@ -39,6 +39,7 @@
     "@techiediaries/ngx-qrcode": "^9.0.0",
     "@types/google-maps": "^3.2.2",
     "@types/jquery": "^3.3.38",
+    "alertifyjs": "^1.13.1",
     "cordova-plugin-datepicker": "^0.9.3",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-inappbrowser": "^3.2.0",

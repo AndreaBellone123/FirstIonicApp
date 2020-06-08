@@ -15,6 +15,13 @@ export const routes: Routes = [
     loadChildren: () => import('./reservations/reservations.module').then( m => m.ReservationsPageModule),
    
   },
+
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule),
+   
+  },
+
     {
     path: 'forgot-password',
     loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
@@ -49,6 +56,10 @@ export const routes: Routes = [
   {
     path: 'reservations',
     loadChildren: () => import('./reservations/reservations.module').then( m => m.ReservationsPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
 
 ];

@@ -1,0 +1,22 @@
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+ion-toolbar{
+    
+    --background : #045C84;
+    --border-color : #045C84;
+
+}
+
+
+
+ion-content{
+
+    display: block;
+    --background: #fff url("../../assets/icon/bb.png") no-repeat center / cover;
+  
+  }

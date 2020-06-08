@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth'
 import { Router } from '@angular/router';
 import {AlertController} from '@ionic/angular';
 import { UserService } from '../user.service';
+import { AngularFireModule } from '@angular/fire';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginPage implements OnInit {
   password: string = ""
   i : any
 
-	constructor(public afAuth: AngularFireAuth,public router: Router,public alert : AlertController,public user : UserService) { }
+	constructor(public firebase : AngularFireAuth,public afAuth: AngularFireAuth,public router: Router,public alert : AlertController,public user : UserService) { }
 
 	ngOnInit() {
 
@@ -39,9 +40,32 @@ export class LoginPage implements OnInit {
 
         })
 
+        this.firebase.onAuthStateChanged(function(user) {
+          if (user) {
+            // User is signed in.
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var isAnonymous = user.isAnonymous;
+            var uid = user.uid;
+            var providerData = user.providerData;
+
+            console.log(email);
+            console.log(uid);
+            // ...
+          } else {
+            // User is signed out.
+            // ...
+          }
+        });
+
+
         if(res.user.emailVerified === true ) {
 
           this.router.navigate(['/signedin'])
+
+
+        
           this.showAlert("Successo","Entra nell'area riservata")
   
         }
