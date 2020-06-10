@@ -3,29 +3,28 @@
     <ion-buttons slot="start">
       <ion-back-button mode = "md"  icon="arrow-back" color = "primary"> </ion-back-button>
     </ion-buttons>
-    <ion-title class = "user-area">Area Personale</ion-title>
+    <ion-title>Area Personale</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-
   <div class = "info">
-
-    <ion-label >
-      {{username}}
+    <ion-label id = "nomeUtente" >
+      Username : {{username}}
     </ion-label>
 
-    <ion-label>
-      {{password}}
+    <ion-label id  = "datiExtra">
+    Password : {{password}}
     </ion-label>
-
-    
-    <ion-button (click) = "cancellaAccount()">
-      Elimina Account
-    </ion-button>
-
   </div>
 
+  <ion-button  mode = "ios" id = "bC" shape = "round" expand = "block" (click) = "cancellaAccount()">
+    Elimina Account
+  </ion-button>
+
+  <ion-button mode = "ios" id = "bL" shape = "round" expand = "block" (click) = "logOut()">
+    Logout
+  </ion-button>
 
 </ion-content>

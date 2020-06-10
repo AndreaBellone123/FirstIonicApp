@@ -7,23 +7,29 @@
   </ion-toolbar>
 </ion-header>
 
-
 <div *ngIf = "isActive" id ="cc"> 
   <ion-card id = "cardZ">
     <ion-card-header>
-      <ion-button fill = "clear" id ="close" (click) = "chiudiFinestra()"> 
+      <ion-button mode = "ios" fill = "clear" id ="close" (click) = "chiudiFinestra()"> 
         <ion-icon name="close"></ion-icon>
       </ion-button>
       <ion-card-title id ="title">Reservation</ion-card-title>
   </ion-card-header>
     <ion-card-content>
+
+      <ion-item>
+        <ion-label>Data :</ion-label>
+        <ion-datetime monthValues="6,7,8,9" yearValues="2020,2021" dayValues="01,02,03,04,05,06,08,09,10, 11, 12, 13, 14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30" displayFormat="DD/MMM/YYYY" [(ngModel)] = "data" [ngModelOptions]="{standalone: true}"></ion-datetime>
+      </ion-item>
+
       <ion-input  mode = "md"  required  [(ngModel)] = "username" placeholder = "Email" [ngModelOptions]="{standalone: true}"> </ion-input > 
   
       <br>
-  
+
       <ion-input  mode = "md" type ="password" required  [(ngModel)] = "password" placeholder = "Password" [ngModelOptions]="{standalone: true}"> </ion-input>
   
       <ion-button id = "p" mode = "ios" shape = "round" type="submit" (click) = "reservations()">Prenota</ion-button>
+
     </ion-card-content>
   </ion-card>
   </div>
@@ -33,10 +39,10 @@
   
   <form [formGroup]="directionForm" (ngSubmit)="calculateAndDisplayRoute(directionForm.value)">
     <ion-item>
-      <ion-label position="floating">Destination</ion-label>
+      <ion-label position="floating">Destinazione</ion-label>
       <ion-input formControlName="destination"></ion-input>
     </ion-item>
-    <ion-button expand="full" type="submit" [disabled]="!directionForm.valid">Get Direction</ion-button>
+    <ion-button mode = "ios" expand="full" type="submit" [disabled]="!directionForm.valid">Portami quì</ion-button>
   </form>
 
 

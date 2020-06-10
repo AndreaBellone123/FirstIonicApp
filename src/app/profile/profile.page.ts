@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AlertController } from '@ionic/angular';
-import * as alertifyjs from 'alertifyjs';
-
+// import * as alertifyjs from 'alertifyjs';
 
 @Component({
   selector: 'app-profile',
@@ -14,6 +13,10 @@ export class ProfilePage implements OnInit {
 
   username : string = "";
   password : string = "";
+  lat_destinazione : any;
+  lng_destinazione : any;
+  data : any;
+
 
 
   constructor(public firebase : AngularFireAuth,public activatedRoute : ActivatedRoute,public angularAuth : AngularFireAuth,public  router : Router,public alert : AlertController) { }
@@ -22,25 +25,31 @@ export class ProfilePage implements OnInit {
 
      // Using Observable
 
-    /* this.activatedRoute.paramMap.subscribe(params => { 
+     this.activatedRoute.paramMap.subscribe(params => { 
       this.username = params.get('username'); 
       this.password=params.get('password');
+      this.password=params.get('data');
+      this.lat_destinazione=params.get('lat_destinazione');
+      this.lng_destinazione=params.get('lng_destinazione');
 
       console.log(this.username);
       console.log(this.password);
-  });*/
-  
+      console.log(this.data);
+      console.log(this.lat_destinazione);
+      console.log(this.lng_destinazione);
+
+
+  });
+
   }
 
-
   cancellaAccount(){
-
-    //this.showAlertButtons("Successo","Account eliminato correttamente!");
     
     if(confirm('Are you sure about that??') == true){
 
       this.firebase.onAuthStateChanged(function(user) {
         if (user) {
+          
           // User is signed in.
           var displayName = user.displayName;
           var email = user.email;
@@ -50,16 +59,16 @@ export class ProfilePage implements OnInit {
           var providerData = user.providerData;
           
           console.log(email);
-          console.log(uid);
-  
+          console.log(uid);         
+        
           // user.delete;
-          // ...
+      
         } else {
-          // User is signed out.
-          // ...
+        
+          console.log('User signed out')
         }
       });
-      
+
       console.log('True')
     }
 
@@ -67,8 +76,6 @@ export class ProfilePage implements OnInit {
       console.log('False')
     }
     
-    // this.router.navigate(['/home'])     
-
     
   }
 
@@ -83,6 +90,19 @@ export class ProfilePage implements OnInit {
 
     await alert.present()
 
+  }
+
+
+  logOut(){
+    this.firebase.signOut().then(function() {
+      // Sign-out successful.
+      console.log('Sign-out successful.');
+
+    }, function(error) {
+        console.log(error);
+    });
+
+    this.router.navigate(['/home'])
   }
 
   /*showAlertButtons(){

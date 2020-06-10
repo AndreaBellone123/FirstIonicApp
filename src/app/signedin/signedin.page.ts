@@ -8,7 +8,6 @@ import { AngularFireAuth } from '@angular/fire/auth'
 import{Router}from '@angular/router'
 declare var google;
 
-
 @Component({
   selector: 'app-signedin',
   templateUrl: './signedin.page.html',
@@ -26,7 +25,6 @@ export class SignedinPage implements OnInit,AfterViewInit{
   directionsDisplay = new google.maps.DirectionsRenderer;
   directionForm : FormGroup;
 
-
   map: any;
   mapOptions: any;
   mapCenter = { lat: null, lng: null };
@@ -37,10 +35,25 @@ export class SignedinPage implements OnInit,AfterViewInit{
   password : any = "";
   isSelected : any = true;
   cardActive : any = true;
+  customYearValues = [2020, 2016, 2008, 2004, 2000, 1996];
+  customDayShortNames = ['s\u00f8n', 'man', 'tir', 'ons', 'tor', 'fre', 'l\u00f8r'];
+  customPickerOptions: any;
+  data : any;
 
-  
   constructor(public fControl :FormControl,public fb : FormBuilder,public afAuth:AngularFireAuth,public geolocation: Geolocation,public alert : AlertController,public router: Router) {
 
+    this.customPickerOptions = {
+      buttons: [{
+        text: 'Salva',
+        handler: () => console.log('Clicked Save!')
+      }, {
+        text: 'Log',
+        handler: () => {
+          console.log('Clicked Log. Do not Dismiss.');
+          return false;
+        }
+      }]
+    }
 
     this.createDirectionForm();
 
@@ -58,11 +71,10 @@ ngOnInit(){
 
 ngAfterViewInit() : void{
 
-  
   this.geolocation.getCurrentPosition().then((resp) => {
 
-    this.mapCenter.lat = resp.coords.latitude;
-    this.mapCenter.lng = resp.coords.longitude;
+    this.mapCenter.lat =   40.269704;      // resp.coords.latitude;
+    this.mapCenter.lng =  17.883726;//resp.coords.longitude;
     this.mapOptions = {
 
       zoom: 15,
@@ -95,7 +107,6 @@ ngAfterViewInit() : void{
     
   });
 
-
 }
 
 async showAlert(header : string,message:string){
@@ -114,14 +125,14 @@ async showAlert(header : string,message:string){
 
 reservations(){
 
-  const { username, password } = this
+  const { username, password,data } = this
 
-  this.showAlert("Successo", "Username : " + username +  "Password : " + password);
+  this.showAlert("Successo", "Username : " + username +  "Password : " + password + " Data : " + data);
 
+  var lat_destinazione = this.LtdLng.lat;
+  var lng_destinazione = this.LtdLng.lng;
 
-  this.router.navigate(['/profile',{username : username,password : password,si : true}]);
-
-
+  this.router.navigate(['/profile',{username : username,password : password, lat_destinazione : lat_destinazione,lng_destinazione : lng_destinazione,data:data,si : true}]);
 
 }
 
@@ -135,11 +146,10 @@ calculateAndDisplayRoute(formValues) {
     if (status === 'OK') {
       that.directionsDisplay.setDirections(response);
     } else {
-      window.alert('Directions request failed due to ' + status);
+      window.alert('Non è stato possibile rilevare il tragitto migliore per la destinazione selezionata ' + status);
     }
   });
 }
-
 
   chiudiFinestra(){
     console.log('Chiuso')

@@ -1,7 +1,5 @@
 .info{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display:block;
 }
 
 
@@ -9,10 +7,10 @@ ion-toolbar{
     
     --background : #045C84;
     --border-color : #045C84;
+    color: darkorange;
+    font-family: 'SF-Pro-Display-Bold'; 
 
 }
-
-
 
 ion-content{
 
@@ -20,3 +18,44 @@ ion-content{
     --background: #fff url("../../assets/icon/bb.png") no-repeat center / cover;
   
   }
+
+  ion-button{
+    
+    display: block;
+    border-radius: 25px;
+    width: 134px;
+    height: 34px;
+    background-color: #e87a00;
+    font-family: 'SF-Pro-Display-Bold'; 
+    color:#ffffff;
+    margin-left : 10px;
+
+}
+ #nomeUtente{
+    margin-top: 45px; 
+    display: block;
+    text-align: center;
+    font-family: 'SF-Pro-Display-Bold'; 
+    color: #ffffff;
+
+
+ }
+
+ #datiExtra{
+
+    margin-top: 15px; 
+    display: block;
+    text-align: center;
+    font-family: 'SF-Pro-Display-Bold'; 
+    color: #ffffff;
+
+ }
+
+ #bC{
+
+    margin-top: 145px;
+ }
+
+#bL{
+    margin-top: 15px;
+ }
